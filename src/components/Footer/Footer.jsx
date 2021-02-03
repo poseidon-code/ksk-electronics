@@ -31,9 +31,9 @@ const Footer = () => {
                 <div className='messege'>
                     <h1>Contact Us</h1>
                     <form>
-                        <input type='text' name='name' placeholder='Name' />
-                        <input type='email' name='email' placeholder='Email' />
-                        <textarea name='messege' placeholder='Messege'></textarea>
+                        <input required type='text' name='name' placeholder='Name' />
+                        <input required type='email' name='email' placeholder='Email' />
+                        <textarea required name='messege' placeholder='Messege'></textarea>
                         <button
                             type='submit'
                             onClick={(e) => {

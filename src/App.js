@@ -5,7 +5,6 @@ import './App.scss';
 import Layout from './components/Layout/Layout';
 
 import Home from './pages/Home/Home';
-import About from './pages/About/About';
 import Courses from './pages/Courses/Courses';
 import SignIn from './pages/SignIn/SignIn';
 import Enroll from './pages/Enroll/Enroll';
@@ -22,9 +21,6 @@ const App = () => {
                 </Route>
                 <Route path='/courses'>
                     <Courses />
-                </Route>
-                <Route path='/about'>
-                    <About />
                 </Route>
                 <Route path='/' exact>
                     <Home />

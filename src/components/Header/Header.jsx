@@ -24,7 +24,6 @@ const Header = () => {
                     <NavLink to='/' exact>
                         Home
                     </NavLink>
-                    <NavLink to='/about'>About</NavLink>
                     <NavLink to='/courses'>Courses</NavLink>
                     <NavLink to='/signin'>Sign In</NavLink>
                     <NavLink to='/enroll'>Enroll</NavLink>
@@ -33,9 +32,6 @@ const Header = () => {
                     <nav className='navbar_mobile'>
                         <NavLink to='/' exact onClick={toggleNavbar}>
                             Home
-                        </NavLink>
-                        <NavLink to='/about' onClick={toggleNavbar}>
-                            About
                         </NavLink>
                         <NavLink to='/courses' onClick={toggleNavbar}>
                             Courses
