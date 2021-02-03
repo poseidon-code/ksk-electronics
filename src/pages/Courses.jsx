@@ -1,9 +1,11 @@
+import '../styles/Courses.scss';
+
 const Courses = () => {
-  return (
-    <section className="Courses">
-      <h1>Courses</h1>
-    </section>
-  );
+    return (
+        <div className='courses'>
+            <h1>Courses</h1>
+        </div>
+    );
 };
 
 export default Courses;

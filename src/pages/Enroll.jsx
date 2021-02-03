@@ -1,9 +1,11 @@
+import '../styles/Enroll.scss';
+
 const Enroll = () => {
-  return (
-    <section className="Enroll">
-      <h1>Enroll</h1>
-    </section>
-  );
+    return (
+        <div className='enroll'>
+            <h1>Enroll</h1>
+        </div>
+    );
 };
 
 export default Enroll;

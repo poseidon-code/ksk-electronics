@@ -1,9 +1,11 @@
+import '../styles/Home.scss';
+
 const Home = () => {
-  return (
-    <section className="home">
-      <h1>Home</h1>
-    </section>
-  );
+    return (
+        <div className='home'>
+            <h1>Home</h1>
+        </div>
+    );
 };
 
 export default Home;
