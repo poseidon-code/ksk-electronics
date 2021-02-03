@@ -25,7 +25,7 @@ const SignIn = () => {
                     <button type='submit'>Sign In</button>
                 </form>
                 <NavLink to='/enroll' className='enroll'>
-                    Haven't enrolled yet ? <strong> Enroll Now</strong>
+                    Haven't enrolled yet ?<strong>Enroll Now</strong>
                 </NavLink>
             </div>
         </div>
