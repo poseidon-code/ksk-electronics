@@ -1,0 +1,94 @@
+.wrapper.footer {
+  color: var(--text-light);
+  background: linear-gradient(
+    340deg,
+    rgba(70, 166, 61, 1) 48%,
+    rgba(0, 151, 255, 1) 100%
+  );
+}
+.container.footer {
+  padding: 1rem 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+.footer .details {
+  width: 300px;
+}
+.footer .details > * {
+  margin-top: 0.6rem;
+}
+.footer .details h1 {
+  font-size: 2rem;
+  margin-top: 0;
+}
+.footer .details * span {
+  font-size: 1.2rem;
+}
+
+.footer .messege {
+  width: 300px;
+}
+.footer .messege h1 {
+  font-size: 2rem;
+}
+.footer .messege form {
+  margin-top: 0.6rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+.footer .messege form ::placeholder {
+  color: var(--text-light);
+}
+.footer .messege form input,
+.footer .messege form textarea,
+.footer .messege form input:focus,
+.footer .messege form textarea:focus {
+  border: 2px solid var(--text-light);
+  font-size: 1rem;
+  padding: 0.6rem 1rem;
+  outline: none;
+  border-radius: 0.2rem;
+  background-color: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(6px);
+}
+.footer .messege form textarea {
+  min-width: 100%;
+  max-width: 100%;
+  min-height: 200px;
+  max-height: 200px;
+}
+.footer .messege form button {
+  padding: 0.7rem 1rem;
+  font-size: 1.2rem;
+  color: var(--text-light);
+  background-color: var(--accent-alt);
+  border-radius: 0.3rem;
+  transition: filter var(--time);
+}
+.footer .messege form button:hover {
+  filter: saturate(2);
+}
+.footer .messege form button:active {
+  filter: saturate(1.2);
+}
+
+@media only screen and (max-width: 760px) {
+  .container.footer {
+    padding: 1rem;
+  }
+  .footer {
+    flex-direction: column;
+  }
+  .footer .messege {
+    margin-top: 2rem;
+    width: 100%;
+  }
+  .footer .messege form button:hover {
+    filter: none;
+  }
+  .footer .messege form button:active {
+    filter: saturate(2);
+  }
+}
