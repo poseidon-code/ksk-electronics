@@ -9,6 +9,12 @@
     align-items: center;
 }
 
+.header {
+    position: sticky;
+    top: 0;
+    left: 0;
+}
+
 .header .brand h1 {
     font-size: 1.7rem;
 }
