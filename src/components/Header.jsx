@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
-import './Header.scss';
+import '../styles/Header.scss';
 
-import { Close, Menu } from '../UI/Icons/Icons';
+import { Close, Menu } from './UI/Icons';
 
 const Header = () => {
     const [menu, toggleMenu] = useState(false);

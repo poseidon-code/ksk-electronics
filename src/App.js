@@ -1,13 +1,12 @@
 import React from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
-import './App.scss';
+import './styles/App.scss';
 
-import Layout from './components/Layout/Layout';
-
-import Home from './pages/Home/Home';
-import Courses from './pages/Courses/Courses';
-import SignIn from './pages/SignIn/SignIn';
-import Enroll from './pages/Enroll/Enroll';
+import Layout from './components/Layout';
+import Home from './pages/Home';
+import Courses from './pages/Courses';
+import SignIn from './pages/SignIn';
+import Enroll from './pages/Enroll';
 
 const App = () => {
     return (
