@@ -1,10 +1,10 @@
-.enroll {
+.register {
     padding: 1rem;
     display: grid;
     place-items: center;
 }
 
-.enroll-form {
+.register-form {
     width: 30%;
     margin: 2rem 0;
     display: flex;
@@ -64,6 +64,7 @@
     }
 
     .signin {
+        display: block;
         width: 100%;
         padding: 0.6rem 1rem;
         color: var(--text-light);
@@ -78,7 +79,7 @@
 }
 
 @media only screen and (max-width: 760px) {
-    .enroll-form {
+    .register-form {
         width: 100%;
 
         form {

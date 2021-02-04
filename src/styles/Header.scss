@@ -13,6 +13,7 @@
     position: sticky;
     top: 0;
     left: 0;
+    z-index: 100;
 }
 
 .header .brand h1 {
@@ -21,6 +22,7 @@
 
 .header .navbar,
 .header .navbar_mobile {
+    z-index: 100;
     display: block;
     a {
         padding: 1rem;
@@ -30,9 +32,18 @@
             background-color: rgba(255, 255, 255, 0.2);
             backdrop-filter: blur(8px);
         }
-        &:last-of-type,
-        &.active:last-of-type {
-            background-color: var(--text-dark);
+    }
+    button {
+        font-size: 1rem;
+        padding: 1rem;
+        cursor: pointer;
+        color: var(--text-light);
+        background-color: transparent;
+        transition: background-color var(--time);
+        &:hover,
+        &.active {
+            background-color: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(8px);
         }
     }
 }
