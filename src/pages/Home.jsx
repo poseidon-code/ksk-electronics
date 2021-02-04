@@ -1,10 +1,12 @@
-import '../styles/Home.scss';
-
+import React from 'react';
+import HeroSection from '../components/HeroSection';
+import Cards from '../components/Cards';
 const Home = () => {
     return (
-        <div className='home'>
-            <h1>Home</h1>
-        </div>
+        <>
+        <HeroSection />
+        <Cards />
+        </>
     );
 };
 
