@@ -8,7 +8,7 @@ import { Close, Menu } from './UI/Icons';
 const Header = () => {
     const [menu, toggleMenu] = useState(false);
 
-    const { currentUser, signout } = useAuth();
+    const { authorised, signout, signin, user } = useAuth();
     const history = useHistory();
 
     const toggleNavbar = () => {
@@ -18,7 +18,13 @@ const Header = () => {
     const handleSignOut = async () => {
         menu && toggleNavbar();
         await signout();
-        history.push('/signin');
+        !authorised && history.push('/');
+    };
+
+    const handleSignIn = async () => {
+        menu && toggleNavbar();
+        await signin();
+        authorised && history.push('/dashboard');
     };
 
     return (
@@ -36,16 +42,13 @@ const Header = () => {
                     </NavLink>
                     <NavLink to='/courses'>Courses</NavLink>
 
-                    {currentUser ? (
+                    {authorised ? (
                         <>
-                            <NavLink to='/dashboard'>Dashboard</NavLink>
+                            <NavLink to='/dashboard'>{user.name}</NavLink>
                             <button onClick={handleSignOut}>Sign Out</button>
                         </>
                     ) : (
-                        <>
-                            <NavLink to='/signin'>Sign In</NavLink>
-                            <NavLink to='/register'>Register</NavLink>
-                        </>
+                        <button onClick={handleSignIn}>Sign In</button>
                     )}
                 </nav>
                 {menu && (
@@ -56,22 +59,15 @@ const Header = () => {
                         <NavLink to='/courses' onClick={toggleNavbar}>
                             Courses
                         </NavLink>
-                        {currentUser ? (
+                        {authorised ? (
                             <>
                                 <NavLink to='/dashboard' onClick={toggleNavbar}>
-                                    Dashboard
+                                    {user.name}
                                 </NavLink>
                                 <button onClick={handleSignOut}>Sign Out</button>
                             </>
                         ) : (
-                            <>
-                                <NavLink to='/signin' onClick={toggleNavbar}>
-                                    Sign In
-                                </NavLink>
-                                <NavLink to='/register' onClick={toggleNavbar}>
-                                    Register
-                                </NavLink>
-                            </>
+                            <button onClick={handleSignIn}>Sign In</button>
                         )}
                     </nav>
                 )}
