@@ -1,9 +1,10 @@
 .wrapper.header {
     color: var(--text-light);
-    background: linear-gradient(330deg, rgba(70, 166, 61, 1) 24%, rgba(0, 151, 255, 1) 100%);
+    background: var(--bg-accent);
 }
 
 .container.header {
+    padding: 1rem 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -24,8 +25,11 @@
 .header .navbar_mobile {
     z-index: 100;
     display: block;
+    font-size: 1.2rem;
     a {
-        padding: 1rem;
+        padding: 0.6rem 1rem;
+        margin-right: 1rem;
+        border-radius: 0.3rem;
         transition: background-color var(--time);
         &:hover,
         &.active {
@@ -34,16 +38,18 @@
         }
     }
     button {
-        font-size: 1rem;
-        padding: 1rem;
+        font-size: 1.2rem;
+        padding: 0.6rem 1rem;
+        border-radius: 0.3rem;
         cursor: pointer;
         color: var(--text-light);
-        background-color: transparent;
-        transition: background-color var(--time);
-        &:hover,
-        &.active {
-            background-color: rgba(255, 255, 255, 0.2);
-            backdrop-filter: blur(8px);
+        background-color: var(--accent);
+        transition: filter var(--time);
+        &:hover {
+            filter: saturate(2);
+        }
+        &:active {
+            filter: saturate(1.2);
         }
     }
 }
@@ -52,33 +58,48 @@
     * {
         display: block;
     }
+    a,
+    button {
+        width: 100%;
+        text-align: center;
+        margin-right: 0;
+        margin: 1rem 0;
+        padding: 1rem;
+        font-size: 1.4rem;
+    }
     width: 100%;
+    padding: 0 1rem;
     flex-direction: column;
-    background: linear-gradient(255deg, rgba(70, 166, 61, 1) 24%, rgba(0, 151, 255, 1) 100%);
+    gap: 1rem;
+    background: var(--bg-accent);
     z-index: 100;
     position: absolute;
-    top: 3.4rem;
+    top: 4.4rem;
     left: 0;
+
+    button {
+        &:hover {
+            filter: none;
+        }
+        &:active {
+            filter: saturate(2);
+        }
+    }
 }
 
 .header .navbar_toggle {
     display: none;
-    padding: 1rem;
     background-color: transparent;
     transition: background-color var(--time);
     svg {
         color: var(--text-light);
-        width: 1.2rem;
-    }
-    &:hover {
-        background-color: rgba(255, 255, 255, 0.2);
-        backdrop-filter: blur(8px);
+        width: 2.2rem;
     }
 }
 
 @media only screen and (max-width: 760px) {
     .container.header {
-        padding-left: 1rem;
+        padding: 1rem;
     }
     .header .navbar {
         display: none;

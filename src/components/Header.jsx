@@ -51,6 +51,7 @@ const Header = () => {
                         <button onClick={handleSignIn}>Sign In</button>
                     )}
                 </nav>
+
                 {menu && (
                     <nav className='navbar_mobile'>
                         <NavLink to='/' exact onClick={toggleNavbar}>

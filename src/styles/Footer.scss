@@ -1,9 +1,10 @@
 .wrapper.footer {
     color: var(--text-light);
-    background: linear-gradient(340deg, rgba(70, 166, 61, 1) 48%, rgba(0, 151, 255, 1) 100%);
+    background: var(--bg-accent);
 }
 .container.footer {
-    padding: 1rem 0;
+    padding-top: 3rem;
+    padding-bottom: 6rem;
     display: flex;
     justify-content: space-between;
 }
@@ -12,7 +13,7 @@
     width: 300px;
 
     > * {
-        margin-top: 0.6rem;
+        margin-top: 2rem;
     }
     h1 {
         font-size: 2rem;
@@ -38,33 +39,40 @@
 
         ::placeholder {
             color: var(--text-light);
+            filter: brightness(0.8);
         }
 
         input,
         textarea,
         input:focus,
         textarea:focus {
+            color: var(--text-light);
             border: 2px solid var(--text-light);
-            font-size: 1rem;
+            font-size: 1.2rem;
             padding: 0.6rem 1rem;
             outline: none;
             border-radius: 0.2rem;
-            background-color: rgba(255, 255, 255, 0.4);
+            background-color: rgba(255, 255, 255, 0.2);
             backdrop-filter: blur(6px);
+        }
+        input:focus-within,
+        textarea:focus-within {
+            border: 2px solid var(--accent);
         }
 
         textarea {
             min-width: 100%;
             max-width: 100%;
-            min-height: 200px;
-            max-height: 200px;
+            min-height: 140px;
+            max-height: 140px;
         }
 
         button {
             padding: 0.7rem 1rem;
-            font-size: 1.2rem;
+            font-size: 1.4rem;
+            cursor: pointer;
             color: var(--text-light);
-            background-color: var(--accent-alt);
+            background-color: var(--accent);
             border-radius: 0.3rem;
             transition: filter var(--time);
             &:hover {
@@ -80,6 +88,8 @@
 @media only screen and (max-width: 760px) {
     .container.footer {
         padding: 1rem;
+        padding-top: 3rem;
+        padding-bottom: 6rem;
     }
     .footer {
         flex-direction: column;

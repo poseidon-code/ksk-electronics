@@ -1,12 +1,12 @@
-@import url('https://fonts.googleapis.com/css2?family=Cabin:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;600&display=swap');
 
 :root {
     font-size: 16px;
-    --bg: #ffffff;
-    --accent: #2ca354;
-    --accent-alt: #2a7e46;
-    --text-light: #ffffff;
-    --text-dark: #000000;
+    --bg: #f8fafc;
+    --bg-accent: #0f172a;
+    --accent: #38bdf8;
+    --text-light: #f8fafc;
+    --text-dark: #0f172a;
     --time: 250ms;
 }
 
@@ -14,7 +14,8 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Cabin', sans-serif;
+    font-family: 'Work Sans', sans-serif;
+    -webkit-tap-highlight-color: transparent;
 }
 
 a {
