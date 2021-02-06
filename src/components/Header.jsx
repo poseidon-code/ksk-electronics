@@ -18,13 +18,13 @@ const Header = () => {
     const handleSignOut = async () => {
         menu && toggleNavbar();
         await signout();
-        !authorised && history.push('/');
+        history.push('/');
     };
 
     const handleSignIn = async () => {
         menu && toggleNavbar();
         await signin();
-        authorised && history.push('/dashboard');
+        history.push('/dashboard');
     };
 
     return (
