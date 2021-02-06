@@ -13,42 +13,45 @@ export const AuthProvider = ({ children }) => {
         email: '',
     });
 
-    const signin = () => {
-        auth.signInWithPopup(provider)
-            .then((result) => {
-                var user = result.user;
-                setAuthorized(true);
-                setUser({
-                    name: user.displayName,
-                    email: user.email,
-                });
-            })
-            .catch((error) => {
-                console.log(error);
+    const signin = async () => {
+        try {
+            const res = await auth.signInWithPopup(provider);
+            const user = res.user;
+            setAuthorized(true);
+            setUser({
+                name: user.displayName,
+                email: user.email,
             });
+        } catch (error) {
+            console.log(error);
+        }
     };
 
-    const signout = () => {
-        auth.signOut()
-            .then(() => {
-                setAuthorized(false);
-            })
-            .catch((error) => {
-                console.log(error);
-            });
+    const signout = async () => {
+        try {
+            await auth.signOut();
+            setAuthorized(false);
+        } catch (error) {
+            console.log(error);
+        }
     };
 
     useEffect(() => {
-        const unsubscribe = auth.onAuthStateChanged((user) => {
-            if (user) {
-                setUser({
-                    name: user.displayName,
-                    email: user.email,
-                });
-                setAuthorized(true);
-            }
-            setLoading(false);
-        });
+        let unsubscribe;
+        try {
+            unsubscribe = auth.onAuthStateChanged((user) => {
+                if (user) {
+                    setUser({
+                        name: user.displayName,
+                        email: user.email,
+                    });
+                    setAuthorized(true);
+                }
+                setLoading(false);
+            });
+        } catch (error) {
+            console.log(error);
+        }
 
         return unsubscribe;
     }, []);
