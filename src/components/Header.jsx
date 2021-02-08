@@ -8,7 +8,7 @@ import { Close, Menu } from './UI/Icons';
 const Header = () => {
     const [menu, toggleMenu] = useState(false);
 
-    const { authorised, signout, signin, user } = useAuth();
+    const { isAuthorised, signout, signin, user } = useAuth();
     const history = useHistory();
 
     const toggleNavbar = () => {
@@ -42,9 +42,9 @@ const Header = () => {
                     </NavLink>
                     <NavLink to='/courses'>Courses</NavLink>
 
-                    {authorised ? (
+                    {isAuthorised ? (
                         <>
-                            <NavLink to='/dashboard'>{user.name}</NavLink>
+                            <NavLink to='/dashboard'>{user.name.split(' ')[0]}</NavLink>
                             <button onClick={handleSignOut}>Sign Out</button>
                         </>
                     ) : (
@@ -60,10 +60,10 @@ const Header = () => {
                         <NavLink to='/courses' onClick={toggleNavbar}>
                             Courses
                         </NavLink>
-                        {authorised ? (
+                        {isAuthorised ? (
                             <>
                                 <NavLink to='/dashboard' onClick={toggleNavbar}>
-                                    {user.name}
+                                    {user.name.split(' ')[0]}
                                 </NavLink>
                                 <button onClick={handleSignOut}>Sign Out</button>
                             </>
