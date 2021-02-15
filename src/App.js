@@ -11,12 +11,13 @@ import Dashboard from './pages/Dashboard';
 import AdminDashboard from './pages/AdminDashboard';
 
 const App = () => {
-    const { isAdmin } = useAuth();
+    // const { isAdmin } = useAuth();
+    const { user } = useAuth();
 
     return (
         <Layout>
             <Switch>
-                <PrivateRoute path='/dashboard' component={isAdmin ? AdminDashboard : Dashboard} />
+                <PrivateRoute path='/dashboard' component={user.isAdmin ? AdminDashboard : Dashboard} />
                 <Route path='/' exact component={Home} />
                 <Route path='/courses' component={Courses} />
                 <Route path='*' exact>
