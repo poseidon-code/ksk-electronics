@@ -16,7 +16,7 @@ export const AuthProvider = ({ children }) => {
     });
 
     const server = axios.create({
-        baseURL: ,
+        baseURL: process.env.REACT_APP_SERVER,
     });
 
     const getUserData = async (email) => {
