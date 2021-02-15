@@ -8,7 +8,6 @@ import { Close, Menu } from './UI/Icons';
 const Header = () => {
     const [menu, toggleMenu] = useState(false);
 
-    // const { isAuthorised, signout, signin, user } = useAuth();
     const { signout, signin, user } = useAuth();
     const history = useHistory();
 

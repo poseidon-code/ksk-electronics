@@ -1,5 +1,5 @@
 import { createContext, useContext, useEffect, useState } from 'react';
-import { auth, firestore, provider } from '../firebase';
+import { auth, provider } from '../firebase';
 import axios from 'axios';
 
 const AuthContext = createContext();
@@ -20,15 +20,13 @@ export const AuthProvider = ({ children }) => {
     });
 
     const getUserData = async (email) => {
-        console.log('getUserData()');
-        const user = await firestore.collection('users').doc(email).get();
-        return user.data();
+        const res = await server.get('/users/' + email);
+        return res.data;
     };
 
     const checkRegistered = async (name, email) => {
-        console.log('checkRegistered()');
-        const user = await firestore.collection('users').doc(email).get();
-        if (!user.exists) {
+        const res = await getUserData(email);
+        if (res.status === 'FAILED') {
             await server.post('/register', {
                 name: name,
                 email: email,
@@ -37,7 +35,6 @@ export const AuthProvider = ({ children }) => {
     };
 
     const signin = async () => {
-        console.log('signin()');
         try {
             await auth.signInWithPopup(provider);
         } catch (error) {
@@ -46,7 +43,6 @@ export const AuthProvider = ({ children }) => {
     };
 
     const signout = async () => {
-        console.log('signout()');
         try {
             await auth.signOut();
             setUser({
@@ -60,14 +56,13 @@ export const AuthProvider = ({ children }) => {
     };
 
     useEffect(() => {
-        console.log('AuthContext mounted');
         let unsubscribe;
         try {
             unsubscribe = auth.onAuthStateChanged(async (current_user) => {
                 if (current_user) {
                     await checkRegistered(current_user.displayName, current_user.email);
-                    const user_data = await getUserData(current_user.email);
-                    console.log('mounted getUserData()');
+                    const res = await getUserData(current_user.email);
+                    const user_data = res.data;
                     setUser({
                         user: user_data,
                         isAdmin: user_data.type === 'admin' ? true : false,
